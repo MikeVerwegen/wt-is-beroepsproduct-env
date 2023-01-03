@@ -1,0 +1,27 @@
+#header figure {
+  float: left;
+  margin-top: 8px;
+}
+
+#header img {
+  max-height: 100px;
+  height: 20px;
+  width: auto;
+}
+
+#header input[type='text'] {
+  float: right;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#header a {
+  float: right;
+  color: white;
+  margin-top: 8px;
+  margin-left: 30px;
+  margin-right: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+}
