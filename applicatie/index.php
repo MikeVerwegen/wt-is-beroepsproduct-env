@@ -1,11 +1,12 @@
 <?php
-declare(strict_types=1);
-?>
-<?php
+  declare(strict_types=1);
+  
   $titel = "Home - Fletnix";
-  require_once 'components/db_connectie.php';
+  
   require_once 'components/head.php';
   require_once 'components/header.php';
+  require_once 'components/footer.php';
+  
   echo genereerHead($titel);
 ?>
   <link rel="stylesheet" href="css/preview.css">
@@ -13,7 +14,7 @@ declare(strict_types=1);
     <div class="grid">
       <header>
         <?=
-        maakHeader();
+        HTML_HEADER;
         ?>
       </header>
       <main>
@@ -50,6 +51,11 @@ declare(strict_types=1);
           </grand>
         </div>
       </main>
+      <footer>
+        <?=
+        HTML_FOOTER;
+        ?>
+      </footer>
     </div>
   </body>
 </html>

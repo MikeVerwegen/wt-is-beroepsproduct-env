@@ -1,7 +1,6 @@
 <?php
-declare(strict_types=1);
-?>
-<?php
+  declare(strict_types=1);
+  
   $film = [
     'titel' => "Spider-Man: No Way Home",
     'speelduur' => 150,
@@ -11,16 +10,18 @@ declare(strict_types=1);
     'hoofdrolspelers' => ["Tom Holland", "Benedict Cumberbatch", "Alfred Molina", "Willem Dafoe", "Jamie Foxx", "J.K. Simmons"],
     'cover' => "images/poster-spiderman.jpg"
   ];
+  
   require_once 'components/head.php';
   require_once 'components/header.php';
   require_once 'components/cast.php';
+  
   echo genereerHead($film['titel']);
 ?>
   <body>
     <div class="grid">
       <header>
         <?=
-        maakHeader();
+        HTML_HEADER;
         ?>
       </header>
       <main>
@@ -43,6 +44,11 @@ declare(strict_types=1);
           </p>
         </div>
       </main>
+      <footer>
+        <?=
+        HTML_FOOTER;
+        ?>
+      </footer>
     </div>
   </body>
 </html>

@@ -1,27 +1,81 @@
-#header figure {
+.header {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header figure {
   float: left;
   margin-top: 8px;
 }
 
-#header img {
+.header img {
   max-height: 100px;
   height: 20px;
   width: auto;
 }
 
-#header input[type='text'] {
+.header input[type='text'] {
   float: right;
   margin-top: 8px;
   margin-right: 16px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
-#header a {
-  float: right;
+.header a {
+  font-size: 16px;  
+  float: left;
   color: white;
   margin-top: 8px;
-  margin-left: 30px;
-  margin-right: 30px;
-  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.header-text {
+  font-size: 16px;  
+  float: left;
+  color: white;
+  margin-top: 8px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  background-color: inherit;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #212121;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: white;
+  padding: 0;
+  text-decoration: none;
+  display: block;
   text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #313131;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
