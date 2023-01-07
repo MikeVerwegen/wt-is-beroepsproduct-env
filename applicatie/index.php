@@ -3,7 +3,7 @@ declare(strict_types=1);
 ?>
 <?php
   $titel = "Home - Fletnix";
-  require_once 'components/verbinding.php';
+  require_once 'components/db_connectie.php';
   require_once 'components/head.php';
   require_once 'components/header.php';
   echo genereerHead($titel);
@@ -19,7 +19,7 @@ declare(strict_types=1);
       <main>
         <div class="preview-grid" id="preview">
           <spiderman>
-            <a href="mediaproduct">
+            <a href="mediaproduct.php">
               <img src="images/thumbnail-spiderman.jpg" alt="Preview van Spider-Man: No Way Home"/>
             </a>
             <p>Spiderman: No Way Home</p>

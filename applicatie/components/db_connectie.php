@@ -2,11 +2,14 @@
 
 // defined in 'variables.env'
 $db_host = 'database_server'; // de database server 
-$db_name = 'muziekschool';                    // naam van database
+$db_name = 'movies';                    // naam van database
 
 // defined in sql-script 'movies.sql'
 $db_user    = 'sa';                 // db user
-$db_password = 'abc123!@#';  // wachtwoord db user
+$db_password = rtrim(file_get_contents('secrets/password_rdbms_app', true));  // wachtwoord db user
+if (!$db_password) {
+  throw new RuntimeException('Kon een wachtwoordbestand voor SQL Server niet uitlezen. ');
+}
 
 // Het 'ssl certificate' wordt altijd geaccepteerd (niet overnemen op productie, verder dan altijd "TrustServerCertificate=1"!!!)
 $verbinding = new PDO('sqlsrv:Server=' . $db_host . ';Database=' . $db_name . ';ConnectionPooling=0;TrustServerCertificate=1', $db_user, $db_password);
