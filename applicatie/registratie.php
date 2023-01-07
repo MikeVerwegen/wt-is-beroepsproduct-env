@@ -19,7 +19,7 @@
       </header>
       <main>
         <?=
-        genereerRegistratieFormulier();
+        HTML_FORM_REG;
         ?>
       </main>
       <footer>

@@ -24,7 +24,7 @@
           </figure>
         </div>
         <?=
-        genereerInlogFormulier();
+        HTML_FORM_LOGIN;
         ?>
       </main>
       <footer>

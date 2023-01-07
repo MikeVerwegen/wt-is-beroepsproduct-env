@@ -1,7 +1,8 @@
 <?php
+
 function genereerRegistratieFormulier() {
-  $html = <<<HEAD
-  <form action="login" method="post">
+  $html = <<<REGISTRATIE
+  <form action="login.php" method="post">
     <fieldset>
       <label for="vnaam">Voornaam: *</label>
       <input id="vnaam" type="text" name="vnaam" required autofocus/><br/>
@@ -30,7 +31,10 @@ function genereerRegistratieFormulier() {
     </fieldset>
     <input type="submit" value="Registreren"/>
   </form>
-HEAD;
+REGISTRATIE;
   return $html;
 }
+
+define('HTML_FORM_REG', genereerRegistratieFormulier());
+
 ?>
