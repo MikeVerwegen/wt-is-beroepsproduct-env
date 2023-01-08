@@ -2,8 +2,8 @@
 USE [movies]
 GO
 
-ALTER TABLE [Person]
+ALTER TABLE [Customer]
 ADD [admin] [bit] NOT NULL DEFAULT 0;
 
-UPDATE [Person]
+UPDATE [Customer]
 SET [admin] = 0;

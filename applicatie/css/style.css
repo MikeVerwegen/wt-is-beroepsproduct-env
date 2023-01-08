@@ -39,6 +39,13 @@ p {
   text-align: left;
 }
 
+a {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  float: center;
+  text-decoration: none;
+}
+
 form {
   color: white;
   margin-left: 30px;
@@ -60,6 +67,18 @@ fieldset {
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   text-align: left;
+}
+
+iframe {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  float: center;
+}
+
+img {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  float: center;
 }
 
 #logo img {

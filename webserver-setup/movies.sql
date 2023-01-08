@@ -56,6 +56,7 @@ CREATE TABLE [dbo].[Customer](
 	[country_name] [varchar](50) NOT NULL,
 	[gender] [char](1) NULL,
 	[birth_date] [date] NULL,
+	[admin] [bit] NOT NULL DEFAULT 0,
  CONSTRAINT [PK_Customer] PRIMARY KEY 
 (
 	[customer_mail_address] ASC
@@ -167,7 +168,6 @@ CREATE TABLE [dbo].[Person](
 	[lastname] [varchar](50) NOT NULL,
 	[firstname] [varchar](50) NOT NULL,
 	[gender] [char](1) NULL,
-	[admin] [bit] NOT NULL DEFAULT 0,
  CONSTRAINT [PK_Person] PRIMARY KEY 
 (
 	[person_id] ASC
