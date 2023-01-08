@@ -49,7 +49,7 @@ CREATE TABLE [dbo].[Customer](
 	[payment_method] [varchar](10) NOT NULL,
 	[payment_card_number] [varchar](30) NOT NULL,
 	[contract_type] [varchar](10) NOT NULL,
-	[subscription_start] [date] NOT NULL,
+	[subscription_start] [date] NOT NULL DEFAULT GETDATE(),
 	[subscription_end] [date] NULL,
 	[user_name] [varchar](30) NOT NULL,
 	[password] [varchar](250) NOT NULL,

@@ -111,19 +111,14 @@ function haalAlleBetaalmethodenOp()
     return $query->fetchAll();
 }
 
-function voltooiRegistratie($voornaam, $tussenvoegsel, $achternaam, $mail, $land, $geboortedatum, $abonnement, $betaalmethode, $iban, $gebruikersnaam, $wachtwoord)
+function voltooiRegistratie($voornaam, $lastname, $geslacht, $mail, $land, $geboortedatum, $abonnement, $betaalmethode, $iban, $gebruikersnaam, $wachtwoord)
 {
-    if (!empty($tussenvoegsel)) {
-        $lastname = $tussenvoegsel . ' ' . $achternaam;
-    } else {
-        $lastname = $achternaam;
-    }
-
     global $verbinding;
-    $sql = "INSERT INTO Customer([firstname], [lastname], [customer_mail_address], [country_name], [birth_date], [contract_type], [payment_method], [payment_card_number], [user_name], [password], [subscription_start]) VALUES (:voornaam, :achternaam, :mail, :land, :geboortedatum, :abonnement, :betaalmethode, :iban, :gebruikersnaam, :wachtwoord, GETDATE())";
+    $sql = "INSERT INTO Customer([firstname], [lastname], [gender], [customer_mail_address], [country_name], [birth_date], [contract_type], [payment_method], [payment_card_number], [user_name], [password]) VALUES (:voornaam, :achternaam, :geslacht, :mail, :land, :geboortedatum, :abonnement, :betaalmethode, :iban, :gebruikersnaam, :wachtwoord)";
     $query = $verbinding->prepare($sql);
     $query->execute([':voornaam' => $voornaam, 
                     ':achternaam' => $lastname, 
+                    ':geslacht' => $geslacht,
                     ':mail' => $mail, 
                     ':land' => $land, 
                     ':geboortedatum' => $geboortedatum, 
@@ -132,8 +127,18 @@ function voltooiRegistratie($voornaam, $tussenvoegsel, $achternaam, $mail, $land
                     ':iban' => $iban, 
                     ':gebruikersnaam' => $gebruikersnaam, 
                     ':wachtwoord' => $wachtwoord]);
-    return $query->fetchAll();
 }
+
+function haalKlantOp($mail, $wachtwoord)
+{
+    global $verbinding;
+    $sql = "SELECT 1 FROM [Customer] WHERE [customer_mail_adsress] = :mail AND [password] = :wachtwoord";
+    $query = $verbinding->prepare($sql);
+    $query->execute([':mail' => $mail, 
+                    ':wachtwoord' => $wachtwoord]);
+    return $query->fetch();    
+}
+
 /*
 function voegFilmToe()
 {
