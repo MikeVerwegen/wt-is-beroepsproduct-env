@@ -92,9 +92,11 @@ img {
 }
 
 table {
+  font-family: Arial, Helvetica, sans-serif;
   color: white;
   border-color: white;
+  float: center;
   margin-left: 30px;
   margin-right: 30px;
-  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }

@@ -21,6 +21,15 @@ function haalFilmsOp($titel, $genre)
     return $query->fetchAll();
 }
 
+function haalAlleGenresOp()
+{
+    global $verbinding;
+    $sql = "SELECT [genre_name] FROM [Genre] ORDER BY [genre_name] ASC";
+    $query = $verbinding->prepare($sql);
+    $query->execute();
+    return $query->fetchAll();
+}
+
 function haalFilmgegevensOp($movie_id)
 {
     global $verbinding;

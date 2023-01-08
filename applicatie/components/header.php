@@ -1,7 +1,10 @@
 <?php
 
+require_once 'components/data_functies.php';
+require_once 'components/view_functies.php';
+
 function maakHeader() {
-  $html = <<<HEAD
+  $html = <<<HEAD1
   <div class="header">
     <a>
       <figure>
@@ -13,9 +16,10 @@ function maakHeader() {
         <div class="dropdown">
           <button class="dropbtn">Genres</button>
           <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
+HEAD1;
+  $genres = haalAlleGenresOp();
+  $html .= genresNaarHTML($genres);
+  $html .= <<<HEAD2
           </div>
         </div>
         <a href="">Zoeken</a>
@@ -28,7 +32,7 @@ function maakHeader() {
       </div>
     </a>
   </div>
-HEAD;
+HEAD2;
   return $html;
 }
 

@@ -16,6 +16,15 @@ function filmsNaarHTML($films)
     return $html;
 }
 
+function genresNaarHTML($genres)
+{
+    $html = '';
+    foreach ($genres as $genre) {
+        $html .= '<a href="index.php?genre=' . $genre['genre_name'] . '">
+        ' . $genre['genre_name'] . '</a>';
+    }
+    return $html;
+}
 
 function filmgegevensNaarHTML($film, $genres)
 {
