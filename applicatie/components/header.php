@@ -22,12 +22,13 @@ HEAD1;
   $html .= <<<HEAD2
           </div>
         </div>
-        <a href="">Zoeken</a>
-  <!--
-        <form action="" method="post">
-          <input type="text" placeholder="Zoeken">
+      </div>
+      <a>
+        <form action="index.php" method="get">
+          <input type="text" name="titel" id="titel" placeholder="Zoeken">
         </form>
-  -->
+      </a>
+      <div class="header-text">
         <a href="login.php">Inloggen</a>
       </div>
     </a>

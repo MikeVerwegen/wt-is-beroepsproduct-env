@@ -9,7 +9,26 @@
   require_once 'components/data_functies.php';
   require_once 'components/view_functies.php';
   
-  $films = haalAlleFilmsOp();
+  if (isset($_GET['genre'])) {
+    $genre = $_GET['genre'];
+  }
+  if (isset($_GET['titel'])) {
+    $search = '%';
+    $search .= $_GET['titel'];
+    $search .= '%';
+  }
+
+  if (!empty($genre) && !empty($search)) {
+    $films = zoekFilmsOpTitelEnGenre($search, $genre);
+  } else if (!empty($search)) {
+    $films = zoekFilmsOpTitel($search);
+  } else if (!empty($genre)) {
+    $films = zoekFilmsOpGenre($genre);
+  } else {
+    $films = haalAlleFilmsOp();
+  }
+
+//  var_dump($films);die();
 
   echo genereerHead($titel);
 ?>

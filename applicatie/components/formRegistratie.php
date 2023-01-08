@@ -1,7 +1,10 @@
 <?php
 
+require_once 'components/data_functies.php';
+require_once 'components/view_functies.php';
+
 function genereerRegistratieFormulier() {
-  $html = <<<REGISTRATIE
+  $html = <<<REGISTRATIE1
   <form action="login.php" method="post">
     <fieldset>
       <label for="vnaam">Voornaam: *</label>
@@ -12,26 +15,17 @@ function genereerRegistratieFormulier() {
       <input id="anaam" type="text" name="anaam" required/><br/>
       <label for="mail">E-mailadres: *</label>
       <input id="mail" type="email" name="mail" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9._%+-]+\.[a-zA-Z]{2,4}$" required/><br/>
-      <label for="land">Nationaliteit: *</label>
-      <select id="land" name="land" required>
-        <option value="1">NL</option>
-        <option value="2">DE</option>
-        <option value="3">UK</option>
-      </select><br/>
+REGISTRATIE1;
+  $landen = haalAlleLandenOp();
+  $html .= landenNaarHTML($landen);
+  $html .= '
       <label for="datum">Geboortedatum: *</label>
-      <input id="datum" type="date" name="datum" required/><br/>
-      <label for="abbo">Abonnementkeuze: *</label>
-      <select id="abbo" name="abbo" required>
-        <option value="1">8.99</option>
-        <option value="2">10.99</option>
-        <option value="3">12.99</option>
-      </select><br/>
-      <label for="pay">Betaalmethode: *</label>
-      <select id="pay" name="pay" required>
-        <option value="1">Cash</option>
-        <option value="2">Card</option>
-        <option value="3">Other</option>
-      </select><br/>
+      <input id="datum" type="date" name="datum" required/><br/>';
+  $contracten = haalAlleContractenOp();
+  $html .= contractenNaarHTML($contracten);
+  $betaalmethoden = haalAlleBetaalmethodenOp();
+  $html .= betaalmethodenNaarHTML($betaalmethoden);
+  $html .= <<<REGISTRATIE2
       <label for="iban">IBAN-nummer: *</label>
       <input id="iban" type="text" name="iban" minlength="14" maxlength="14" pattern="[AZ]{2}[0-9]{2}[AZ]{4}[0-9]{10}" title="Een IBAN bestaat uit 2 letters, 2 cijfers, 4 letters en 10 cijfers." required/><br/>
       <br/>
@@ -44,7 +38,7 @@ function genereerRegistratieFormulier() {
     </fieldset>
     <input type="submit" value="Registreren"/>
   </form>
-REGISTRATIE;
+REGISTRATIE2;
   return $html;
 }
 

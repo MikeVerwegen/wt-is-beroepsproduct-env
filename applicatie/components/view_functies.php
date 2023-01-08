@@ -87,4 +87,37 @@ function castNaarHTML($regisseurs, $cast)
     return $html;
 }
 
+function landenNaarHTML($landen)
+{
+    $html = '<label for="land">Nationaliteit: *</label>
+        <select id="land" name="land" required>';
+    foreach ($landen as $land) {
+        $html .= '<option value="' . $land['country_name'] . '">' . $land['country_name'] . '</option>';
+    }
+    $html .= '</select><br/>';
+    return $html;
+}
+
+function contractenNaarHTML($contracten)
+{
+    $html = '<label for="abbo">Abonnementkeuze: *</label>
+        <select id="abbo" name="abbo" required>';
+    foreach ($contracten as $contract) {
+        $html .= '<option value="' . $contract['contract_type'] . '">' . $contract['contract_type'] . ' - €' . $contract['price_per_month'] . '/maand - ' . $contract['discount_percentage'] . '% korting</option>';
+    }
+    $html .= '</select><br/>';
+    return $html;
+}
+
+function betaalmethodenNaarHTML($betaalmethoden)
+{
+    $html = '<label for="pay">Betaalmethode: *</label>
+        <select id="pay" name="pay" required>';
+    foreach ($betaalmethoden as $betaalmethode) {
+        $html .= '<option value="' . $betaalmethode['payment_method'] . '">' . $betaalmethode['payment_method'] . '</option>';
+    }
+    $html .= '</select><br/>';
+    return $html;
+}
+
 ?>
