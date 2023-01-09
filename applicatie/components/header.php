@@ -30,13 +30,20 @@ HEAD1;
       </a>
       <div class="header-text">
 HEAD2;
-  if (!isset($_SESSION['user'])) {
+  if (isset($_SESSION['user'])) {
     $html .= '
-        <a href="login.php">Inloggen</a>';
+      <a>Hallo ' . $_SESSION['user'] . '!</a>';
+  }
+  if (isset($_SESSION['admin'])) {
+    $html .= '
+      <a href="toevoegenProduct.php">Product toevoegen</a>';
+  }
+  if (isset($_SESSION['user'])) {
+    $html .= '
+      <a href="verwerkLogout.php">Uitloggen</a>';
   } else {
-      $html .= '
-        <a>Hallo ' . $_SESSION['user'] . '</a>
-        <a href="verwerkLogout.php">Uitloggen</a>';
+    $html .= '
+      <a href="login.php">Inloggen</a>';
   }
   $html .= '
         </div>

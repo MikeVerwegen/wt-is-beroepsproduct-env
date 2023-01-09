@@ -40,7 +40,7 @@ REGISTRATIE1;
   $html .= betaalmethodenNaarHTML($betaalmethoden);
   $html .= <<<REGISTRATIE2
       <label for="iban">IBAN-nummer: *</label>
-      <input id="iban" type="text" name="iban" placeholder="IBAN" minlength="18" maxlength="18" pattern="[AZ]{2}+[0-9]{2}+[AZ]{4}+[0-9]{10}" title="Een IBAN bestaat uit 2 letters, 2 cijfers, 4 letters en 10 cijfers." required/><br/>
+      <input id="iban" type="text" name="iban" placeholder="IBAN" minlength="18" maxlength="18" pattern="^[AZ]{2}\s[0-9]{2}\s[AZ]{4}\s[0-9]{10}$" title="Een IBAN bestaat uit 2 letters, 2 cijfers, 4 letters en 10 cijfers." required/><br/>
       <br>
       <label for="user">Gebruikersnaam: *</label>
       <input id="user" type="text" name="user" placeholder="Gebruikersnaam" required/>
@@ -49,7 +49,7 @@ REGISTRATIE1;
       <input id="ww" type="password" name="ww" placeholder="Wachtwoord" required/>
       <br>
       <label for="hww">Bevestiging wachtwoord: *</label>
-      <input id="hww" type="password" name="hww" placeholder="Herhaal wachtwoord" required/> <!-- moet gelijk zijn aan wachtwoord -->
+      <input id="hww" type="password" name="hww" placeholder="Herhaal wachtwoord" required/>
     </fieldset>
     <input type="submit" value="Registreren"/>
   </form>

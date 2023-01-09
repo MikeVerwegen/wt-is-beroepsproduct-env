@@ -12,6 +12,9 @@ if (!isset($user['customer_mail_address'])) {
     echo "Incorrect wachtwoord ingevoerd. ";
 } else {
     $_SESSION['user'] = $user['firstname'];
+    if ($user['admin'] = 1) {
+        $_SESSION['admin'] = true;
+    }
     $_SESSION['paginasBezocht'] = 0;
     header("Location: index.php");
 }

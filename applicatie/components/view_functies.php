@@ -46,7 +46,7 @@ function filmgegevensNaarHTML($film, $genres)
     $html .= $film['publication_year'] . ' - ' . $film['duration'] . ' minuten - €' . $film['price'] . '<br><br>
     ' . $film['description'] . '<br><br>';
     if (!empty($film['URL'])) {
-        $html .= '<iframe width="560" height="315" src="https://www.youtube.com/embed/' . substr($film['URL'], -32) . ' " title="Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>';
+        $html .= '<a href="' . $film['URL'] . '" target="_blank" rel="noopener noreferrer">Bekijk de trailer <u>hier</u></a><br>';
     } else {
         $html .= 'Geen trailer beschikbaar<br>';
     }

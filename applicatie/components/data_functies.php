@@ -132,18 +132,28 @@ function voltooiRegistratie($voornaam, $lastname, $geslacht, $mail, $land, $gebo
 function haalKlantOp($mail)
 {
     global $verbinding;
-    $sql = "SELECT [firstname], [customer_mail_address], [password] FROM [Customer] WHERE [customer_mail_address] = :mail";
+    $sql = "SELECT [firstname], [customer_mail_address], [password], [admin] FROM [Customer] WHERE [customer_mail_address] = :mail";
     $query = $verbinding->prepare($sql);
     $query->execute([':mail' => $mail]);
-    return $query->fetch();    
+    return $query->fetch();
 }
 
-function voegFilmToe($titel, $duur, $beschrijving, $jaar, $cover, $vorig_deel, $prijs, $trailer)
+function haalHoogsteMovieIDOp()
 {
     global $verbinding;
-    $sql = "INSERT INTO [Movie]([title], [duration], [description], [publication_year], [cover_image], [previous_part], [price], [URL]) VALUES (:titel, :lengte, :beschrijving, :jaar, :cover, :vorig_deel, :prijs, :trailer)";
+    $sql = "SELECT MAX([movie_id]) AS [movie_id] FROM [Movie]";
     $query = $verbinding->prepare($sql);
-    $query->execute([':titel' => $titel,
+    $query->execute();
+    return $query->fetch();
+}
+
+function voegFilmToe($ID, $titel, $duur, $beschrijving, $jaar, $cover, $vorig_deel, $prijs, $trailer)
+{
+    global $verbinding;
+    $sql = "INSERT INTO [Movie]([movie_id], [title], [duration], [description], [publication_year], [cover_image], [previous_part], [price], [URL]) VALUES (:ID, :titel, :lengte, :beschrijving, :jaar, :cover, :vorig_deel, :prijs, :trailer)";
+    $query = $verbinding->prepare($sql);
+    $query->execute([':ID' => $ID,
+                    ':titel' => $titel,
                     ':lengte' => $duur,
                     ':beschrijving' => $beschrijving,
                     ':jaar' => $jaar,
