@@ -8,7 +8,7 @@ function maakHeader() {
   <div class="header">
     <a>
       <figure>
-        <a href="index.php">
+        <a href="/">
           <img src="images/logo.png" alt=""/>
         </a>
       </figure>

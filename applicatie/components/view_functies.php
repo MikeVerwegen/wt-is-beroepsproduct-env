@@ -50,6 +50,9 @@ function filmgegevensNaarHTML($film, $genres)
     } else {
         $html .= 'Geen trailer beschikbaar<br>';
     }
+    if (isset($_SESSION['user'])) {
+        $html .= '<a href="")"><u>Bekijk deze film</u></button><br>';
+    }
     return $html;
 }
 
