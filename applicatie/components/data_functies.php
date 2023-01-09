@@ -139,27 +139,36 @@ function haalKlantOp($mail, $wachtwoord)
     return $query->fetch();    
 }
 
-/*
-function voegFilmToe()
+
+function voegFilmToe($titel, $duur, $beschrijving, $jaar, $cover, $vorig_deel, $prijs, $trailer)
 {
     global $verbinding;
-    $sql = ""// TO DO: "INSERT INTO [Movie]() VALUES ";
+    $sql = "INSERT INTO [Movie]([title], [duration], [description], [publication_year], [cover_image], [previous_part], [price], [URL]) VALUES (:titel, :lengte, :beschrijving, :jaar, :cover, :vorig_deel, :prijs, :trailer)";
     $query = $verbinding->prepare($sql);
-    $query->execute(
-        
-    );
-    return $query->fetchAll();
+    $query->execute([':titel' => $titel,
+                    ':lengte' => $duur,
+                    ':beschrijving' => $beschrijving,
+                    ':jaar' => $jaar,
+                    ':cover' => $cover,
+                    ':vorig_deel' => $vorig_deel,
+                    ':prijs' => $prijs,
+                    ':trailer' => $trailer]);
 }
 
-function wijzigFilmgegevens($movie_id)
+function wijzigFilmgegevens($movie_id, $titel, $duur, $beschrijving, $jaar, $cover, $vorig_deel, $prijs, $trailer)
 {
     global $verbinding;
-    $sql = ""// TO DO: "UPDATE [Movie] SET WHERE [movie_id] = :id";
+    $sql = "UPDATE [Movie] SET [title] = :titel, [duration] = :lengte, [description] = :beschrijving, [publication_year] = :jaar, [cover_image] = :cover, [previous_part] = :vorig_deel, [price] = :prijs, [URL] = :trailer WHERE [movie_id] = :id";
     $query = $verbinding->prepare($sql);
-    $query->execute([':id' => $movie_id
-        
-    ]);
-    return $query->fetchAll();
-}*/
+    $query->execute([':id' => $movie_id,
+                    ':titel' => $titel,
+                    ':lengte' => $duur,
+                    ':beschrijving' => $beschrijving,
+                    ':jaar' => $jaar,
+                    ':cover' => $cover,
+                    ':vorig_deel' => $vorig_deel,
+                    ':prijs' => $prijs,
+                    ':trailer' => $trailer]);
+}
 
 ?>
