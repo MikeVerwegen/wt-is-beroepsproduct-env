@@ -5,7 +5,7 @@ require_once 'components/view_functies.php';
 
 function genereerRegistratieFormulier() {
   $html = <<<REGISTRATIE1
-    <form action="verwerk.php" method="post"> 
+    <form action="verwerkRegistratie.php" method="post"> 
     <fieldset>
       <label for="vnaam">Voornaam: *</label>
       <input id="vnaam" type="text" name="vnaam" placeholder="Voornaam" required autofocus/>
