@@ -1,5 +1,12 @@
 <?php
   declare(strict_types=1);
+
+  session_start();
+if (!isset($_SESSION['user'])) {
+  session_destroy();
+} else {
+  $_SESSION['paginasBezocht']++;
+}
   
   $titel = "Home - Fletnix";
   
@@ -8,7 +15,7 @@
   require_once 'components/footer.php';
   require_once 'components/data_functies.php';
   require_once 'components/view_functies.php';
-  
+
   if (isset($_GET['genre'])) {
     $genre = $_GET['genre'];
   }
@@ -27,8 +34,6 @@
   } else {
     $films = haalAlleFilmsOp();
   }
-
-//  var_dump($films);die();
 
   echo genereerHead($titel);
 ?>

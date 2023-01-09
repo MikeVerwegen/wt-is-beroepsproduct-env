@@ -4,12 +4,8 @@ require_once 'components/data_functies.php';
 require_once 'components/view_functies.php';
 
 function genereerRegistratieFormulier() {
-  $html = '<form action="verwerk.php" method="post">';
-  if (isset($errorMessage)) {
-    $html .= '<div class="error-message">' . $_SESSION["errorMessage"] . '</div>';
-    unset($errorMessage);
-  }
-  $html .= <<<REGISTRATIE1
+  $html = <<<REGISTRATIE1
+    <form action="verwerk.php" method="post"> 
     <fieldset>
       <label for="vnaam">Voornaam: *</label>
       <input id="vnaam" type="text" name="vnaam" placeholder="Voornaam" required autofocus/>

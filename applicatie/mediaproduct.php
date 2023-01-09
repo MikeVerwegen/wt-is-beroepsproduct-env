@@ -1,12 +1,19 @@
 <?php
   declare(strict_types=1);
+
+  session_start();
+if (!isset($_SESSION['user'])) {
+  session_destroy();
+} else {
+  $_SESSION['paginasBezocht']++;
+}
   
   require_once 'components/head.php';
   require_once 'components/header.php';
   require_once 'components/footer.php';
   require_once 'components/data_functies.php';
   require_once 'components/view_functies.php';
-  
+
   $movie_id = $_GET['movie_id'];
   $film = haalFilmgegevensOp($movie_id);
   $genres = haalFilmGenresOp($movie_id);

@@ -1,5 +1,12 @@
 <?php
   declare(strict_types=1);
+
+  session_start();
+if (!isset($_SESSION['user'])) {
+  session_destroy();
+} else {
+  $_SESSION['paginasBezocht']++;
+}
   
   $titel = "Over ons";
   
@@ -9,6 +16,7 @@
   require_once 'components/footer.php';
 
   echo genereerHead($titel);
+  
 ?>
   <body>
     <div class="grid">

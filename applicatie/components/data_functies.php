@@ -129,16 +129,14 @@ function voltooiRegistratie($voornaam, $lastname, $geslacht, $mail, $land, $gebo
                     ':wachtwoord' => $wachtwoord]);
 }
 
-function haalKlantOp($mail, $wachtwoord)
+function haalKlantOp($mail)
 {
     global $verbinding;
-    $sql = "SELECT 1 FROM [Customer] WHERE [customer_mail_adsress] = :mail AND [password] = :wachtwoord";
+    $sql = "SELECT [firstname], [customer_mail_address], [password] FROM [Customer] WHERE [customer_mail_address] = :mail";
     $query = $verbinding->prepare($sql);
-    $query->execute([':mail' => $mail, 
-                    ':wachtwoord' => $wachtwoord]);
+    $query->execute([':mail' => $mail]);
     return $query->fetch();    
 }
-
 
 function voegFilmToe($titel, $duur, $beschrijving, $jaar, $cover, $vorig_deel, $prijs, $trailer)
 {

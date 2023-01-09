@@ -1,12 +1,9 @@
 <?php
 
 require_once 'components/data_functies.php';
-require_once 'components/view_functies.php';
 
 if ($_POST['ww'] != $_POST['hww']) {
-    $errorMessage = "Wachtwoorden komen niet overeen, probeer opnieuw. ";
-    header("Location: registratie.php");
-    exit();
+    echo "Wachtwoorden komen niet overeen, probeer opnieuw. ";
 } else {
     $voornaam = $_POST['vnaam'];
     $tussenvoegsel = $_POST['tussen'];
@@ -26,7 +23,8 @@ if ($_POST['ww'] != $_POST['hww']) {
     $gebruikersnaam = $_POST['user'];
     $wachtwoord = $_POST['ww'];
 
-    voltooiRegistratie($voornaam, $lastname, $geslacht, $mail, $land, $geboortedatum, $abonnement, $betaalmethode, $iban, $gebruikersnaam, $wachtwoord);
+    $hash = password_hash($wachtwoord, PASSWORD_DEFAULT);
+    voltooiRegistratie($voornaam, $lastname, $geslacht, $mail, $land, $geboortedatum, $abonnement, $betaalmethode, $iban, $gebruikersnaam, $hash);
     header("Location: login.php");
 }
 

@@ -29,11 +29,19 @@ HEAD1;
         </form>
       </a>
       <div class="header-text">
-        <a href="login.php">Inloggen</a>
-      </div>
-    </a>
-  </div>
 HEAD2;
+  if (!isset($_SESSION['user'])) {
+    $html .= '
+        <a href="login.php">Inloggen</a>';
+  } else {
+      $html .= '
+        <a>Hallo ' . $_SESSION['user'] . '</a>
+        <a href="verwerkLogout.php">Uitloggen</a>';
+  }
+  $html .= '
+        </div>
+    </a>
+  </div>';
   return $html;
 }
 
