@@ -2,8 +2,7 @@
 
 require_once 'components/data_functies.php';
 
-$retrievedID = haalHoogsteMovieIDOp();
-$ID = $retrievedID['movie_id'] + 1;
+$movie_id = $_GET['id'];
 $titel = $_POST['titel'];
 if (!empty($_POST['duur'])) {
     $duur = $_POST['duur'];
@@ -37,7 +36,7 @@ if (!empty($_POST['url'])) {
     $trailer = NULL;
 }
 
-voegFilmToe($ID, $titel, $duur, $beschrijving, $jaar, $cover, $vorig_deel, $prijs, $trailer);
-header("Location: mediaproduct.php?id=" . $ID);
+wijzigFilmgegevens($movie_id, $titel, $duur, $beschrijving, $jaar, $cover, $vorig_deel, $prijs, $trailer);
+header("Location: mediaproduct.php?id=" . $movie_id);
 
 ?>

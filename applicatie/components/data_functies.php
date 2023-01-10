@@ -51,7 +51,7 @@ function haalAlleGenresOp()
 function haalFilmgegevensOp($movie_id)
 {
     global $verbinding;
-    $sql = "SELECT [title], [duration], [description], [publication_year], [cover_image], [price], [URL] FROM [Movie] WHERE [movie_id] = :movie_id;";
+    $sql = "SELECT * FROM [Movie] WHERE [movie_id] = :movie_id;";
     $query = $verbinding->prepare($sql);
     $query->execute([':movie_id' => $movie_id]);
     return $query->fetch();

@@ -5,10 +5,10 @@ function filmsNaarHTML($films)
     $html = '';
     foreach ($films as $film) {
         $html .= '<div class="preview-item">
-        <a href="mediaproduct.php?movie_id=' . $film['movie_id'] . '">
+        <a href="mediaproduct.php?id=' . $film['movie_id'] . '">
           <img src="' . $film['cover_image'] . '" alt="Preview: ' . $film['title'] . '"/>
         </a><br>
-        <a href="mediaproduct.php?movie_id=' . $film['movie_id'] . '">
+        <a href="mediaproduct.php?id=' . $film['movie_id'] . '">
             ' . $film['title'] . '
         </a>
       </div>';
@@ -54,24 +54,34 @@ function filmgegevensNaarHTML($film, $genres)
         }
         $html .= '<br>';
     }
-    $html .= $film['publication_year'] . ' - ' . $film['duration'] . ' minuten - €' . $film['price'] . '<br><br>
-    ' . $film['description'] . '<br><br>';
+    if (!empty($film['publication_year'])) {
+        $html .= $film['publication_year'] . ' - ';
+    }
+    if (!empty($film['URL'])) {
+        $html .= $film['duration'] . ' minuten - ';
+    }
+    $html .= '€' . $film['price']. '<br><br>';
+    if (!empty($film['URL'])) {
+        $html .= $film['description'] . '<br><br>';
+    } else {
+        $html .= 'Geen beschrijving beschikbaar<br><br>';
+    }
+    if (isset($_SESSION['user'])) {
+        $html .= '<a href="")"><u>Bekijk deze film</u></button><br><br>';
+    }
     if (!empty($film['URL'])) {
         $html .= '<a href="' . $film['URL'] . '" target="_blank" rel="noopener noreferrer">Bekijk de trailer <u>hier</u></a><br>';
     } else {
         $html .= 'Geen trailer beschikbaar<br>';
-    }
-    if (isset($_SESSION['user'])) {
-        $html .= '<a href="")"><u>Bekijk deze film</u></button><br>';
     }
     return $html;
 }
 
 function castNaarHTML($regisseurs, $cast)
 {
-    $html = '';
+    $html = '<br>';
     if (!empty($regisseurs)) {
-        $html .= '<br><table>
+        $html .= '<table>
         <tr>
             <th>Director</th>
         </tr>
@@ -82,9 +92,12 @@ function castNaarHTML($regisseurs, $cast)
             </tr>';
         }
         $html .= '</table>';
+    } else {
+        $html .= 'Geen regisseur(s) bekend<br>';
     }
+    $html .= '<br>';
     if (!empty($cast)) {
-        $html .= '<br><table>
+        $html .= '<table>
         <tr>
             <th>Acteur</th>
             <th>Rol</th>
@@ -97,6 +110,8 @@ function castNaarHTML($regisseurs, $cast)
             </tr>';
         }
         $html .= '</table>';
+    } else {
+        $html .= 'Geen acteur(s) bekend<br>';
     }
     return $html;
 }

@@ -10,16 +10,17 @@ if (!isset($_SESSION['user'])) {
   $_SESSION['paginasBezocht']++;
 }
   
-  $titel = "Product toevoegen";
-  
+  $movie_id = $_GET['id'];
+  $titel = "Wijzig mediaproduct " . $movie_id;
+
   require_once 'components/head.php';
   require_once 'components/header.php';
-  require_once 'components/formProduct.php';
+  require_once 'components/formWijzig.php';
   require_once 'components/footer.php';
 
   echo genereerHead($titel);
 ?>
-  <body>
+<body>
     <div class="grid">
       <header>
         <?=
@@ -28,7 +29,7 @@ if (!isset($_SESSION['user'])) {
       </header>
       <main>
         <?=
-        HTML_FORM_PROD;
+        genereerWijzigFormulier($movie_id);
         ?>
       </main>
       <footer>

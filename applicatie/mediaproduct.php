@@ -14,7 +14,7 @@ if (!isset($_SESSION['user'])) {
   require_once 'components/data_functies.php';
   require_once 'components/view_functies.php';
 
-  $movie_id = $_GET['movie_id'];
+  $movie_id = $_GET['id'];
   $film = haalFilmgegevensOp($movie_id);
   $genres = haalFilmGenresOp($movie_id);
   $regisseurs = haalRegisseursOp($movie_id);
@@ -33,6 +33,12 @@ if (!isset($_SESSION['user'])) {
         <div id='mediaproduct'>
           <?php
             $html = filmgegevensNaarHTML($film, $genres);
+            if (isset($_SESSION['admin'])) {
+              $html.= '
+                <br>
+                <a href="wijzigProduct.php?id=' . $movie_id . '"><u>Wijzig gegevens van deze film</u></a>
+              ';
+            }
             $html .= castNaarHTML($regisseurs, $cast);
             echo $html;
             ?>
