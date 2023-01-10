@@ -18,9 +18,20 @@ function filmsNaarHTML($films)
 
 function genresNaarHTML($genres)
 {
+    $html = '<label for="genre">Genre:</label>
+        <select id="genre" name="genre" required>';
+    foreach ($genres as $genre) {
+        $html .= '<option value="' . $genre['genre_name'] . '">' . $genre['genre_name'] . '</option>';
+    }
+    $html .= '</select><br/>';
+    return $html;
+}
+
+function genresNaarHTMLDrop($genres)
+{
     $html = '';
     foreach ($genres as $genre) {
-        $html .= '<a href="index.php?genre=' . $genre['genre_name'] . '">
+        $html .= '<a href="/?genre=' . $genre['genre_name'] . '">
         ' . $genre['genre_name'] . '</a>';
     }
     return $html;
@@ -38,7 +49,7 @@ function filmgegevensNaarHTML($film, $genres)
     if (!empty($genres)) {
         'Genres: ';
         foreach ($genres as $genre) {
-            $html .= '<a href="index.php?genre=' . $genre['genre_name'] . '">
+            $html .= '<a href="/?genre=' . $genre['genre_name'] . '">
                 ' . $genre['genre_name'] . '</a><br>';
         }
         $html .= '<br>';

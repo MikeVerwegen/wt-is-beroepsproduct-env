@@ -18,13 +18,13 @@ function maakHeader() {
           <div class="dropdown-content">
 HEAD1;
   $genres = haalAlleGenresOp();
-  $html .= genresNaarHTML($genres);
+  $html .= genresNaarHTMLDrop($genres);
   $html .= <<<HEAD2
           </div>
         </div>
       </div>
       <a>
-        <form action="index.php" method="get">
+        <form action="/" method="get">
           <input type="text" name="titel" id="titel" placeholder="Zoeken">
         </form>
       </a>
