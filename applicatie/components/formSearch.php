@@ -3,7 +3,7 @@
 function genereerZoekFormulier() {
   $html = '
     <p>
-        Op deze pagina kunt u zoeken op een combinatie van titel en genre. Zoeken op een van beiden kan via de header bovenaan de pagina.
+        Op deze pagina kunt u zoeken op een combinatie van titel en genre. Zoeken op een van beiden kan via de velden bovenaan de pagina.
     </p>
     <form action="/" method="get"> 
     <fieldset>
