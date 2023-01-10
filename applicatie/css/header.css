@@ -5,6 +5,8 @@
 .header figure {
   float: left;
   margin-top: 8px;
+  margin-left: -95px;
+  margin-right: 15px;
 }
 
 .header img {
@@ -13,32 +15,32 @@
   width: auto;
 }
 
-.header input[type='text'] {
-  float: right;
-  margin-top: 8px;
-  margin-right: 16px;
-}
-
 .header a {
   font-size: 16px;  
   float: left;
   color: white;
   margin-top: 8px;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 25px;
+  margin-right: 25px;
   text-align: center;
   text-decoration: none;
 }
 
-.header-text {
-  font-size: 16px;  
+.header-text-left {
   float: left;
-  color: white;
   margin-top: 8px;
-  margin-left: 5px;
-  margin-right: 5px;
-  text-align: center;
-  text-decoration: none;
+}
+
+.header-text-right {
+  float: right;
+  margin-top: 8px;
+  margin-right: 20px;
+}
+
+.header input[type='text'] {
+  margin-top: 8px;
+  margin-left: -20px;
+  margin-right: -20px;
 }
 
 .dropdown {

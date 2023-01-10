@@ -12,7 +12,7 @@ function maakHeader() {
           <img src="images/logo.png" alt=""/>
         </a>
       </figure>
-      <div class="header-text">
+      <div class="header-text-left">
         <div class="dropdown">
           <button class="dropbtn">Genres</button>
           <div class="dropdown-content">
@@ -28,7 +28,10 @@ HEAD1;
           <input type="text" name="titel" id="titel" placeholder="Zoeken">
         </form>
       </a>
-      <div class="header-text">
+      <div class="header-text-left">
+        <a href="zoeken.php">Geavanceerd zoeken</a>
+      </div>
+      <div class="header-text-right">
 HEAD2;
   if (isset($_SESSION['user'])) {
     $html .= '
