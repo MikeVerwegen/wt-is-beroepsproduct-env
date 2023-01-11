@@ -23,7 +23,7 @@ function genereerWijzigFormulier($movie_id) {
       <input id="prev" type="number" value="' . $film['previous_part'] . '" name="prev"/>
       <br>
       <label for="price">Prijs: *</label>
-      <input id="price" type="text" name="price" value="' . $film['price'] . '" pattern="^[0-9]{n+}\s\.\s[0-9]{2}$" title="Voer hier een geldige prijs in"/>
+      <input id="price" type="text" name="price" value="' . $film['price'] . '" pattern="^[0-9]+\.[0-9]{2}$" title="Voer hier een geldige prijs in"/>
       <br>
       <label for="url">Link naar trailer:</label>
       <input id="url" type="url" name="url" value="' . $film['URL'] . '" maxlength="255" pattern="https://.+"/>

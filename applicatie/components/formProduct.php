@@ -23,7 +23,7 @@ function genereerProductFormulier() {
       <input id="prev" type="number" name="prev"/>
       <br>
       <label for="price">Prijs: *</label>
-      <input id="price" type="text" name="price" pattern="^[0-9]{n+}\s\.\s[0-9]{2}$" title="Voer hier een geldige prijs in"/>
+      <input id="price" type="text" name="price" pattern="^[0-9]+\.[0-9]{2}$" title="Voer hier een geldige prijs in"/>
       <br>
       <label for="url">Link naar trailer:</label>
       <input id="url" type="url" name="url" maxlength="255" pattern="https://.+"/>
